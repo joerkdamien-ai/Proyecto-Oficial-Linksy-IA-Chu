@@ -1,0 +1,27 @@
+# Configuración de Linksy - Predictor de Ventas IA
+
+# API Keys para datos reales (opcional)
+FRED_API_KEY=your_fred_api_key_here
+ALPHA_VANTAGE_API_KEY=your_alpha_vantage_api_key_here
+
+# Configuración de la base de datos
+DATABASE_URL=sqlite:///linksy.db
+
+# Configuración de la API
+API_HOST=0.0.0.0
+API_PORT=8000
+
+# Configuración de Streamlit
+STREAMLIT_PORT=8501
+
+# Configuración del modelo
+MODEL_RANDOM_STATE=42
+MODEL_TEST_SIZE=0.2
+MODEL_N_ESTIMATORS=100
+MODEL_MAX_DEPTH=6
+MODEL_LEARNING_RATE=0.1
+
+# Configuración de logging
+LOG_LEVEL=INFO
+LOG_FILE=logs/linksy.log
+

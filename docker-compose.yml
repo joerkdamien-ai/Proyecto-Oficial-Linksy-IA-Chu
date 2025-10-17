@@ -1,0 +1,45 @@
+version: '3.8'
+
+services:
+  linksy-api:
+    build: .
+    container_name: linksy-api
+    ports:
+      - "8000:8000"
+    environment:
+      - API_HOST=0.0.0.0
+      - API_PORT=8000
+    volumes:
+      - ./data:/app/data
+      - ./models:/app/models
+      - ./logs:/app/logs
+    networks:
+      - linksy-network
+    restart: unless-stopped
+
+  linksy-web:
+    build: .
+    container_name: linksy-web
+    ports:
+      - "8501:8501"
+    environment:
+      - STREAMLIT_PORT=8501
+    volumes:
+      - ./data:/app/data
+      - ./models:/app/models
+      - ./logs:/app/logs
+    networks:
+      - linksy-network
+    depends_on:
+      - linksy-api
+    restart: unless-stopped
+
+networks:
+  linksy-network:
+    driver: bridge
+
+volumes:
+  linksy-data:
+  linksy-models:
+  linksy-logs:
+
